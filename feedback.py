@@ -27,31 +27,34 @@ from tkinter import *
 from tkinter import ttk 
 
 class Feedback:
+ 
 
     def __init__ (self, master):
         self.frame_header = ttk.Frame(master)
+        self.frame_header.pack()
 
-        self.logo = PhotoImage(file = 'tour_logo.gif')
-        ttk.Label(self.frame_header, image = self.logo)
-        ttk.Label(self.frame_header, text = 'Thanks for Exploring!')
-        ttk.Label(self.frame_header, text = ("We're glad you chose Glasierstudios for your photo needs."
-        "Please tell us about your experience")
+        self.logo = PhotoImage(file = "C:/Users/sewmo/Desktop/LinkedInLearning/Ex_Files_Python_GUI_Dev_Tkinter/Ch08/tour_logo.gif")
+        ttk.Label(self.frame_header, image = self.logo).grid(row = 0, column = 0, rowspan = 2)
+        ttk.Label(self.frame_header, text = "Thanks You").grid(row = 0, column = 1)
+        ttk.Label(self.frame_header, wraplength = 300, padding = 10, text = ("We're glad you chose GLasier Studios. "
+    "PLease tell us what you thought about the experience")).grid(row = 1, column = 1)
 
         self.frame_content = ttk.Frame(master)
+        self.frame_content.pack()
 
-        ttk.Label(self.frame_content, text = 'Name:')
-        ttk.Label(self.frame_content, text = 'Email:')
-        ttk.Label(self.frame_content, text = 'Comments:')
+        ttk.Label(self.frame_content, text = 'Name:').grid(row = 0, column = 0, padx = 5, sticky = 'sw')
+        ttk.Label(self.frame_content, text = 'Email:').grid(row = 0, column = 1, padx = 5, sticky = 'sw')
+        ttk.Label(self.frame_content, text = 'Comments:').grid(row = 2, column = 0, padx = 5, sticky = 'sw')
         
-        self.entry_name = ttk.Entry(self.frame_content, width = 24)
-        self.entry_email = ttk.Entry(self.frame_content, width = 24)
-        self.text_comments = Text(self.frame_content, width = 50, height = 10)
+        self.entry_name = ttk.Entry(self.frame_content, width = 24).grid(row = 1, column = 0, padx = 5)
+        self.entry_email = ttk.Entry(self.frame_content, width = 24).grid(row = 1, column = 1, padx = 5)
+        self.text_comments = Text(self.frame_content, width = 40, height = 10, ).grid(row = 3, column = 0, columnspan=2, padx = 5)
 
-        ttk.Button(self.frame_content, text ='Submit')
-        ttk.Button(self.frame_content, text = 'Clear')
+        ttk.Button(self.frame_content, text ='Submit',).grid(row = 4, column = 0, padx = 5, sticky = 'e')
+        ttk.Button(self.frame_content, text = 'Clear', ).grid(row = 4, column = 1, padx = 5, sticky = 'w')
 
 
-        pass:
+        pass
 
 def main():
 
@@ -59,4 +62,6 @@ def main():
     feedback = Feedback(root)
     root.mainloop()
 
-if __name__ == "__main__": main()
+if __name__ == "__main__": 
+    main()
+   
