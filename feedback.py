@@ -50,11 +50,20 @@ class Feedback:
         self.entry_email = ttk.Entry(self.frame_content, width = 24).grid(row = 1, column = 1, padx = 5)
         self.text_comments = Text(self.frame_content, width = 40, height = 10, ).grid(row = 3, column = 0, columnspan=2, padx = 5)
 
-        ttk.Button(self.frame_content, text ='Submit',).grid(row = 4, column = 0, padx = 5, sticky = 'e')
-        ttk.Button(self.frame_content, text = 'Clear', ).grid(row = 4, column = 1, padx = 5, sticky = 'w')
+        ttk.Button(self.frame_content, text ='Submit', self.submit).grid(row = 4, column = 0, padx = 5, sticky = 'e')
+        ttk.Button(self.frame_content, text = 'Clear', self.clear).grid(row = 4, column = 1, padx = 5, sticky = 'w')
 
+    def submit(self):
+        print('Thank you {}, \n We got your submission and will send a copy to {}. \
+            Your submission was as follows: \n \
+            {}' .format(self.entry_name.get(), 
+            self.entry_email.get(), 
+            self.text.comments.get()))
 
-        pass
+    def clear(self):
+        self.entry_name.delete(0,'end')
+        self.entry_email.delete(0,'end')
+        self.text_comments.delete(1.0,'end')
 
 def main():
 
